@@ -35,6 +35,7 @@ function createElement(type, config, ...children) {
     ref = config.ref === undefined ? null : config.ref
 
     /**这一步讲外部的prop属性放进prop里 */
+    // 这一步其实就是为了把没有必要传入自足间的props踢出，比如key， ref等
     for (let propName in config) {
       // 除去一些不需要的属性,key,ref等
       if (RESERVED_PROPS.hasOwnProperty(propName)) continue
