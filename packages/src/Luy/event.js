@@ -17,6 +17,8 @@ export function SyntheticEvent(event) {
     this.nativeEvent = event;
 }
 
+// preventDefault和stopPropagation竟然是原生拦截？
+
 var eventProto = SyntheticEvent.prototype = {
     fixEvent: function fixEvent() { }, //留给以后扩展用
     preventDefault: function preventDefault() {

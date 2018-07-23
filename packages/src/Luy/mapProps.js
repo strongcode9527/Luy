@@ -14,6 +14,7 @@ function isFormElement(domNode) {
     }
 }
 
+// domNode 为真是的dom节点。
 export function mapProp(domNode, props, Vnode) {
     if (Vnode && typeof Vnode.type === 'function') {
         //如果是组件，则不要map他的props进来
@@ -103,6 +104,8 @@ export const mappingStrategy = {
         events[eventName] = noop;
         domNode.__events = events//用于triggerEventByPath中获取event
     },
+
+    // 在这里给document绑定事件函数
     event: function (domNode, eventCb, eventName) {
         let events = domNode.__events || {}
         events[eventName] = eventCb
